@@ -21,7 +21,7 @@ The system runs on an Intel Core Ultra 7 258V (Lunar Lake) with 32 GB LPDDR5X an
 
 The architecture enforces hardware-rooted trust (Pluton measured boot), cryptographic action authorization (single-use Agentic JWTs with 5-second TTL), and mTLS over Hyper-V vsock IPC — ensuring that no single-layer failure can authorize a malicious action.
 
-Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO GenAI](https://github.com/openvinotoolkit/openvino.genai) · Python · Qwen3 models · Intel Arc GPU inference
+Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO GenAI](https://github.com/openvinotoolkit/openvino.genai) · [Python](https://github.com/python/cpython) · [Qwen3](https://github.com/QwenLM/Qwen3) · [Intel Arc GPU](https://github.com/intel/compute-runtime) · [Intel NPU](https://github.com/openvinotoolkit/npu_compiler)
 
 ---
 
