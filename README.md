@@ -33,6 +33,7 @@ I contribute upstream fixes to the tools I depend on:
 - **[openvinotoolkit/npu_compiler#266](https://github.com/openvinotoolkit/npu_compiler/pull/266)** — Defense-in-depth: reject zero-dim FC ops in `UnrollFullyConnected`
 - **[openvinotoolkit/openvino#34450](https://github.com/openvinotoolkit/openvino/issues/34450)** — Filed: LLVM abort in `as_convolution` pass for Qwen3-0.6B INT4 on Lunar Lake NPU
 - **[openvinotoolkit/openvino#34617](https://github.com/openvinotoolkit/openvino/issues/34617)** — Filed: `compile_model` fails with dynamic shape error for Qwen3-0.6B INT4
+- **[openvinotoolkit/openvino#34651](https://github.com/openvinotoolkit/openvino/pull/34651)** — PR: Early guard for unbounded dynamic shapes in NPU `compile_model` (fixes #34617 + 4 related issues)
 - **[openvinotoolkit/openvino.genai#3429](https://github.com/openvinotoolkit/openvino.genai/issues/3429)** — Filed: `LLMPipeline` NPU draft model abort on Lunar Lake
 
 Every bug I file comes from real workloads running real models on real hardware — not synthetic benchmarks.
