@@ -58,6 +58,10 @@ I'm transparent about this because I think it's the future of software engineeri
 
 My passion for privacy fuels my research with local AI. I believe the average consumer device — the laptop already on your desk — can run powerful AI tools privately and securely, without surrendering your data to someone else's server.
 
+
+https://github.com/user-attachments/assets/6df40e93-a4ec-4444-845b-27f71703acad
+
+
 I seek to contribute to open source projects that make this a reality for everyone.
 
 ---
@@ -65,3 +69,4 @@ I seek to contribute to open source projects that make this a reality for everyo
 ### 📫 Connect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blair-do)
+
