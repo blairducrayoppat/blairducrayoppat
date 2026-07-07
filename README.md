@@ -25,7 +25,7 @@ The system runs on an Intel Core Ultra 7 258V (Lunar Lake) with 32 GB LPDDR5X an
 - **Personal Knowledge Substrate** — Semantically indexed local knowledge base with isochronous timing enforcement to eliminate retrieval side-channels.
 - **Local Code Agent** — GPU-accelerated code generation producing atomic Git diffs with compile-test-oracle gate loops.
 
-The architecture enforces hardware-rooted trust (Pluton measured boot), cryptographic action authorization (single-use, agentic JSON Web Tokens with a 5-second time-to-live), and mutual Transport Layer Security over Hyper-V vsock inter-process communication — ensuring that no single-layer failure can authorize a malicious action.
+The architecture enforces hardware-rooted trust (a TPM 2.0 trust root with signature-verified boot), cryptographic action authorization (single-use, agentic JSON Web Tokens with a 5-second time-to-live), and mutual Transport Layer Security over Hyper-V vsock inter-process communication — ensuring that no single-layer failure can authorize a malicious action.
 
 Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO GenAI](https://github.com/openvinotoolkit/openvino.genai) · [Python](https://github.com/python/cpython) · [Qwen3](https://github.com/QwenLM/Qwen3) · [Intel Arc GPU](https://github.com/intel/compute-runtime) · [Intel NPU](https://github.com/openvinotoolkit/npu_compiler)
 
