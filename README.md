@@ -37,17 +37,13 @@ Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO 
 
 ### 🛠️ Open Source Contributions
 
-I contribute upstream to the tools I depend on — fixes, testing, and review, always from real workloads running real models on real hardware:
+I contribute upstream to the tools I depend on — fixes, testing, and measurement, always from real workloads running real models on real hardware:
 
-**Active — OpenVINO GenAI thinking/reasoning control (2026)**
-- **[openvinotoolkit/openvino.genai#4139](https://github.com/openvinotoolkit/openvino.genai/pull/4139)** — Requested reviewer and standing hardware test bench for the `enable_thinking` / `reasoning_budget_tokens` feature *(in review, not yet merged)*: built every branch revision from source, contributed a Windows/MSVC build fix adopted by the author, and published token-exact before/after measurements on Arc 140V that surfaced two behavioral issues and informed successive design iterations.
-- **[openvinotoolkit/openvino.genai#3937](https://github.com/openvinotoolkit/openvino.genai/issues/3937)** — Measurement-backed analysis of thinking-control gaps on Qwen3.6-35B-A3B (part of the motivating evidence for #4139).
-
-**Intel NPU compiler & runtime**
 - **[openvinotoolkit/openvino#34651](https://github.com/openvinotoolkit/openvino/pull/34651)** — PR *(open)*: Early guard for unbounded dynamic shapes in NPU `compile_model` (fixes #34617, addresses 4 related issues)
 - **[openvinotoolkit/openvino#34450](https://github.com/openvinotoolkit/openvino/issues/34450)** — Filed: LLVM abort in `as_convolution` pass for Qwen3-0.6B INT4 on Lunar Lake NPU
 - **[openvinotoolkit/openvino#34617](https://github.com/openvinotoolkit/openvino/issues/34617)** — Filed: `compile_model` fails with dynamic shape error for Qwen3-0.6B INT4
 - **[openvinotoolkit/openvino.genai#3429](https://github.com/openvinotoolkit/openvino.genai/issues/3429)** — Filed: `LLMPipeline` NPU draft model abort on Lunar Lake
+- **[openvinotoolkit/openvino.genai#3937](https://github.com/openvinotoolkit/openvino.genai/issues/3937)** — Filed: measurement-backed analysis of thinking-control gaps on Qwen3.6-35B-A3B (Arc 140V)
 - **[npu_compiler#265](https://github.com/openvinotoolkit/npu_compiler/pull/265)** / **[#266](https://github.com/openvinotoolkit/npu_compiler/pull/266)** — PRs: zero-dim guards in `ConvertFCToConv` / `UnrollFullyConnected` *(closed by me, June 2026)*
 
 Every bug I file comes from real workloads running real models on real hardware — not synthetic benchmarks.
