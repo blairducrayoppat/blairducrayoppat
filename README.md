@@ -1,3 +1,7 @@
+
+
+
+
 # Hey, I'm Blair 👋
 
 **Privacy Program Manager** by profession. **Local-AI researcher** by obsession.
@@ -21,7 +25,7 @@ https://github.com/user-attachments/assets/6df40e93-a4ec-4444-845b-27f71703acad
 **&#9654; New — the coder cut (2 minutes):** how BlarAI ships software.
 
 [![BlarAI — the coder cut: It ships software](https://raw.githubusercontent.com/blairducrayoppat/blarai-public/main/media/coder_cut_poster.png)](https://blairducrayoppat.github.io/blarai-public/coder.html)
-
+https://github.com/user-attachments/assets/9ffd473b-93e5-4763-a9ec-e12ac6afa10c
 *The resident 14B decomposes the request into a dependency-ordered plan ("the model proposes; a deterministic ruler disposes"), a dedicated 30B coder swaps onto the GPU, a research substrate feeds each task what its dependencies actually built, and every merge is evidence-gated — ending on a live run of fleet-built software (28 tests, 0 failures). Illustrated and narrated by BlarAI itself. ([1080p download](https://github.com/blairducrayoppat/blarai-public/releases/tag/demo-film-coder-v1))*
 
 The system runs on an Intel Core Ultra 7 258V (Lunar Lake) with 32 GB LPDDR5X and an Arc 140V GPU, and includes:
