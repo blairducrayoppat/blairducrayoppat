@@ -1,7 +1,3 @@
-
-
-
-
 # Hey, I'm Blair 👋
 
 **Privacy Program Manager** by profession. **Local-AI researcher** by obsession.
@@ -16,6 +12,10 @@ So I'm building the alternative.
 
 **BlarAI** is my primary research project: a security-first, multi-agent AI system designed to run *entirely* on a single consumer laptop — no cloud, no telemetry, no external network calls. Ever.
 
+**&#9654; The vision film (66 seconds):**
+
+https://github.com/user-attachments/assets/9ffd473b-93e5-4763-a9ec-e12ac6afa10c
+
 **&#9654; Watch it run (2 minutes):**
 
 https://github.com/user-attachments/assets/6df40e93-a4ec-4444-845b-27f71703acad
@@ -25,7 +25,7 @@ https://github.com/user-attachments/assets/6df40e93-a4ec-4444-845b-27f71703acad
 **&#9654; New — the coder cut (2 minutes):** how BlarAI ships software.
 
 [![BlarAI — the coder cut: It ships software](https://raw.githubusercontent.com/blairducrayoppat/blarai-public/main/media/coder_cut_poster.png)](https://blairducrayoppat.github.io/blarai-public/coder.html)
-https://github.com/user-attachments/assets/9ffd473b-93e5-4763-a9ec-e12ac6afa10c
+
 *The resident 14B decomposes the request into a dependency-ordered plan ("the model proposes; a deterministic ruler disposes"), a dedicated 30B coder swaps onto the GPU, a research substrate feeds each task what its dependencies actually built, and every merge is evidence-gated — ending on a live run of fleet-built software (28 tests, 0 failures). Illustrated and narrated by BlarAI itself. ([1080p download](https://github.com/blairducrayoppat/blarai-public/releases/tag/demo-film-coder-v1))*
 
 The system runs on an Intel Core Ultra 7 258V (Lunar Lake) with 32 GB LPDDR5X and an Arc 140V GPU, and includes:
@@ -43,14 +43,18 @@ Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO 
 
 ### 🛠️ Open Source Contributions
 
-I contribute upstream fixes to the tools I depend on:
+I contribute upstream to the tools I depend on — fixes, testing, and review, always from real workloads running real models on real hardware:
 
-- **[openvinotoolkit/npu_compiler#265](https://github.com/openvinotoolkit/npu_compiler/pull/265)** — Guard `ConvertFCToConv` against zero-sized channel dimensions (LLVM abort fix)
-- **[openvinotoolkit/npu_compiler#266](https://github.com/openvinotoolkit/npu_compiler/pull/266)** — Defense-in-depth: reject zero-dim FC ops in `UnrollFullyConnected`
+**Active — OpenVINO GenAI thinking/reasoning control (2026)**
+- **[openvinotoolkit/openvino.genai#4139](https://github.com/openvinotoolkit/openvino.genai/pull/4139)** — Requested reviewer and standing hardware test bench for the `enable_thinking` / `reasoning_budget_tokens` feature *(in review, not yet merged)*: built every branch revision from source, contributed a Windows/MSVC build fix adopted by the author, and published token-exact before/after measurements on Arc 140V that surfaced two behavioral issues and informed successive design iterations.
+- **[openvinotoolkit/openvino.genai#3937](https://github.com/openvinotoolkit/openvino.genai/issues/3937)** — Measurement-backed analysis of thinking-control gaps on Qwen3.6-35B-A3B (part of the motivating evidence for #4139).
+
+**Intel NPU compiler & runtime**
+- **[openvinotoolkit/openvino#34651](https://github.com/openvinotoolkit/openvino/pull/34651)** — PR *(open)*: Early guard for unbounded dynamic shapes in NPU `compile_model` (fixes #34617, addresses 4 related issues)
 - **[openvinotoolkit/openvino#34450](https://github.com/openvinotoolkit/openvino/issues/34450)** — Filed: LLVM abort in `as_convolution` pass for Qwen3-0.6B INT4 on Lunar Lake NPU
 - **[openvinotoolkit/openvino#34617](https://github.com/openvinotoolkit/openvino/issues/34617)** — Filed: `compile_model` fails with dynamic shape error for Qwen3-0.6B INT4
-- **[openvinotoolkit/openvino#34651](https://github.com/openvinotoolkit/openvino/pull/34651)** — PR: Early guard for unbounded dynamic shapes in NPU `compile_model` (fixes #34617, addresses 4 related issues)
 - **[openvinotoolkit/openvino.genai#3429](https://github.com/openvinotoolkit/openvino.genai/issues/3429)** — Filed: `LLMPipeline` NPU draft model abort on Lunar Lake
+- **[npu_compiler#265](https://github.com/openvinotoolkit/npu_compiler/pull/265)** / **[#266](https://github.com/openvinotoolkit/npu_compiler/pull/266)** — PRs: zero-dim guards in `ConvertFCToConv` / `UnrollFullyConnected` *(closed by me, June 2026)*
 
 Every bug I file comes from real workloads running real models on real hardware — not synthetic benchmarks.
 
@@ -75,4 +79,3 @@ I seek to contribute to open source projects that make this a reality for everyo
 ### 📫 Connect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blair-do)
-
