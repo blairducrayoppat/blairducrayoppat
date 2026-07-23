@@ -52,9 +52,9 @@ Every bug I file comes from real workloads running real models on real hardware 
 
 ### 🏗️ How I Build
 
-I practice **AI-assisted development** — I architect systems, make design decisions, and direct AI agents (GitHub Copilot, large-language-model-powered coding workflows) to implement, test, and operationalize the software. Every line of code in BlarAI was produced through human-directed AI collaboration: I own the architecture and every technical decision; AI agents own the keystrokes.
+I practice **AI-assisted development** — I architect systems, make design decisions, and direct AI agents to implement, test, and operationalize the software. The current toolchain: **[Claude Code](https://claude.com/claude-code)** (Anthropic) for interactive engineering sessions, a **fully-local coding fleet** — OpenCode driving a 30B coder model on the Arc 140V ([agentic-setup](https://github.com/blairducrayoppat/agentic-setup-public)) — for autonomous overnight runs, and GitHub Copilot for review passes. Every line of code in BlarAI was produced through human-directed AI collaboration: I own the architecture and every technical decision; AI agents own the keystrokes.
 
-I'm transparent about this because I think it's the future of software engineering — and because the results speak for themselves: 4,900+ tests, 9 formally specified use cases, hardware-validated on real silicon.
+I'm transparent about this because I think it's the future of software engineering — and because the results speak for themselves: 8,900+ tests, 9 formally specified use cases, hardware-validated on real silicon.
 
 ---
 
