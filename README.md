@@ -37,53 +37,19 @@ Built with [OpenVINO](https://github.com/openvinotoolkit/openvino) · [OpenVINO 
 
 ### 🛠️ Open Source Contributions
 
-I contribute upstream to the tools I depend on — fixes, testing, and measurement, always from real workloads running real models on real hardware. Status shown for every item, because most of what I submit does not land and the record is more useful with that left in.
+I contribute upstream to the tools I depend on — fixes, hardware testing and measurement from real workloads on Intel Lunar Lake (Arc 140V GPU, NPU), across OpenVINO, OpenVINO GenAI, the NPU compiler, Optimum Intel and OpenVINO Model Server.
 
-*As of 2 October 2026: 8 pull requests (1 merged, 4 open, 3 closed unmerged) and 16 issues filed (9 open, 7 closed), across OpenVINO, OpenVINO GenAI, the NPU compiler and Optimum Intel. Counts are from the GitHub API on that date.*
+- **Authored:** one merged fix, [openvino.genai#4082](https://github.com/openvinotoolkit/openvino.genai/pull/4082) (a structured-output crash at end-of-sequence under speculative decoding). Open work is mainly GPU mixture-of-experts offload, NPU quantization and Eagle3 speculative decoding; the full list is on GitHub: [pull requests](https://github.com/search?q=author%3Ablairducrayoppat&type=pullrequests), [issues](https://github.com/search?q=author%3Ablairducrayoppat&type=issues).
+- **On others' work:** reproduced bugs on Xe2 hardware for other reporters, ran test sweeps for pull-request authors, contributed unit tests and a refactor to a community PR ([genai#4139](https://github.com/openvinotoolkit/openvino.genai/pull/4139)), and published a reproducer for a Model Server crash investigation ([model_server#4428](https://github.com/openvinotoolkit/model_server/issues/4428)).
+- **Not everything lands.** Some work was closed unmerged or declined, and some I withdrew myself when my analysis was wrong ([genai#4368](https://github.com/openvinotoolkit/openvino.genai/issues/4368)). It stays on the record.
 
-**Merged**
-
-- **[openvinotoolkit/openvino.genai#4082](https://github.com/openvinotoolkit/openvino.genai/pull/4082)** — PR *(merged, July 2026)*: fix an xgrammar structured-output crash at EOS under speculative decoding. Verified from 1 crash in 95 generations to 0 (stock release wheel on GPU before; patched C++ reproducer on CPU after). Closed the issue I filed, [#4081](https://github.com/openvinotoolkit/openvino.genai/issues/4081).
-
-**Open pull requests**
-
-- **[openvinotoolkit/openvino#38545](https://github.com/openvinotoolkit/openvino/pull/38545)** — PR *(open, awaiting maintainer review)*: GPU MoE expert offload freed a slot-id buffer while kernels were still reading it. The second `generate()` hung in 15 of 20 runs on master and 0 of 20 with the fix (Arc 140V iGPU); the hang is the bug in #37736 below. The PR states that it does not show the mechanism linking the early free to the hang.
-- **[openvinotoolkit/openvino#38526](https://github.com/openvinotoolkit/openvino/pull/38526)** — PR *(open, under review; a reviewer has questioned the approach)*: restore the `__weights_path` runtime-info key for buffer-backed weights providers in the IR frontend. On the Arc 140V the new test goes from 0 of 3 passing to 3 of 3, and the IR frontend suite from 80 of 81 to 81 of 81. Not verified: Linux, other GPUs, OpenVINO Model Server, CPU or NPU.
-- **[openvinotoolkit/npu_compiler#302](https://github.com/openvinotoolkit/npu_compiler/pull/302)** — PR *(open, no review yet)*: unique per-consumer slice locations in `UnrollGroupQuantize` — the root-cause fix behind the withdrawn #265/#266 below
-- **[huggingface/optimum-intel#1969](https://github.com/huggingface/optimum-intel/pull/1969)** — PR *(open, no review yet)*: stop making optional dependencies hard requirements of Eagle3/DFlash draft-model export
-
-**Open issues**
-
-- **[openvinotoolkit/openvino#37736](https://github.com/openvinotoolkit/openvino/issues/37736)** — Filed: second `generate()` never returns with MoE `OFFLOAD_RATIO` on INT8 Qwen3-30B (Arc 140V). An Intel engineer reproduced it; fix proposed in #38545.
-- **[openvinotoolkit/openvino#37737](https://github.com/openvinotoolkit/openvino/issues/37737)** — Filed: `OFFLOAD_RATIO=100` accepted but silently disables offload. An Intel engineer replied with an internal reference number.
-- **[openvinotoolkit/openvino#34617](https://github.com/openvinotoolkit/openvino/issues/34617)** — Filed: `compile_model` fails with dynamic shape error for Qwen3-0.6B INT4 on the NPU
-- **[openvinotoolkit/openvino.genai#4091](https://github.com/openvinotoolkit/openvino.genai/issues/4091)** — Filed: feature request to revive persistent, disk-backed KV-cache dump/restore for cross-session prefix reuse. Design proposal posted; waiting on a maintainer architecture review.
-- **[openvinotoolkit/openvino.genai#4425](https://github.com/openvinotoolkit/openvino.genai/issues/4425)** — Filed: Eagle3 on CPU intermittently accepts zero draft tokens in freshly built pipelines (3 of 50 runs; 2 of 50 crash at first generate)
-- **[huggingface/optimum-intel#1964](https://github.com/huggingface/optimum-intel/issues/1964)** — Filed: Eagle3 tooling — the greedy-equality test cannot detect a degraded drafter; export needs `einops`. The export half is addressed by #1969.
-- **[huggingface/optimum-intel#2037](https://github.com/huggingface/optimum-intel/issues/2037)** — Filed: question on exporting Intel's Qwen3-Omni-30B-A3B int4 checkpoint to OpenVINO
-- **[openvinotoolkit/npu_compiler#344](https://github.com/openvinotoolkit/npu_compiler/issues/344)** — Filed: Windows/MSVC builds fail with C2855 from a shared precompiled header
-- **[AUGMXNT/llm-tracker.info-vault#1](https://github.com/AUGMXNT/llm-tracker.info-vault/issues/1)** — Filed: offer to add OpenVINO/Qwen3 numbers for the Core Ultra 7 258V
-
-**Closed**
-
-- **[openvinotoolkit/openvino#34651](https://github.com/openvinotoolkit/openvino/pull/34651)** — PR *(closed unmerged by the stale bot, July 2026)*: early guard for unbounded dynamic shapes in NPU `compile_model`, proposed against #34617
-- **[npu_compiler#265](https://github.com/openvinotoolkit/npu_compiler/pull/265)** / **[#266](https://github.com/openvinotoolkit/npu_compiler/pull/266)** — PRs: zero-dim guards in `ConvertFCToConv` / `UnrollFullyConnected` *(closed by me, June 2026 — a maintainer pointed out these guarded where the crash surfaced rather than where the bad tensor was created, so I withdrew them for #302)*
-- **[openvinotoolkit/openvino#34450](https://github.com/openvinotoolkit/openvino/issues/34450)** — Filed: LLVM abort in `as_convolution` pass for Qwen3-0.6B INT4 on Lunar Lake NPU. Closed as completed after an Intel engineer concluded asymmetric per-group quantization is an unsupported NPU configuration; no code change.
-- **[openvinotoolkit/openvino#35641](https://github.com/openvinotoolkit/openvino/issues/35641)** — Filed: `LLMPipeline` on NPU silently accepts an INT8 weight-only IR. Closed *not planned*; an Intel engineer could not reproduce it on their Lunar Lake.
-- **[openvinotoolkit/openvino.genai#4390](https://github.com/openvinotoolkit/openvino.genai/issues/4390)** — Filed: EAGLE-3 silently produces no hidden-state tap on MoE targets. Closed as completed by an Intel engineer; Intel's fix PR (#4449) is open.
-- **[openvinotoolkit/openvino.genai#4368](https://github.com/openvinotoolkit/openvino.genai/issues/4368)** — Filed, then withdrawn by me: my analysis of a prompt-scan mismatch did not hold up on re-test, so I retracted it and closed the issue as *not planned*
-- **[openvinotoolkit/npu_compiler#303](https://github.com/openvinotoolkit/npu_compiler/issues/303)** — Filed, withdrawn by me the same day *(not planned)*
-- **[openvinotoolkit/openvino.genai#3429](https://github.com/openvinotoolkit/openvino.genai/issues/3429)** — Filed: `LLMPipeline` NPU draft model abort on Lunar Lake *(closed as a duplicate)*
-
-I also publish measurements as open data — two CC-BY-4.0 datasets on [HuggingFace](https://huggingface.co/blairducrayoppat) characterising local inference on Lunar Lake, including a negative result showing the vendor-documented NPU draft path is *slower* than not using the NPU at all.
-
-Every bug I file comes from real workloads running real models on real hardware — not synthetic benchmarks.
+I also publish measurements as open data — two CC-BY-4.0 datasets on [HuggingFace](https://huggingface.co/blairducrayoppat), including a negative result: an NPU draft model slowed a GPU target below GPU-only speed.
 
 ---
 
 ### 🏗️ How I Build
 
-I practice **AI-assisted development** — I architect systems, make design decisions, and direct AI agents to implement, test, and operationalize the software. The current toolchain: **[Claude Code](https://claude.com/claude-code)** (Anthropic) for interactive engineering sessions, a **fully-local coding fleet** — OpenCode driving a 30B coder model on the Arc 140V ([agentic-setup](https://github.com/blairducrayoppat/agentic-setup-public)) — for autonomous overnight runs, and GitHub Copilot for review passes. Every line of code in BlarAI was produced through human-directed AI collaboration: I own the architecture and every technical decision; AI agents own the keystrokes.
+I practice **AI-assisted development**, and the division of labor is explicit. **I own the why**: the architecture, what gets built, which problems matter, what risk is acceptable, and what is published under my name. **AI agents own the how**: they research, implement, build, test and draft, and I approve what ships. Upstream posts get an independent AI review against live data before I approve them. The current toolchain: **[Claude Code](https://claude.com/claude-code)** (Anthropic) for interactive engineering sessions, a **fully-local coding fleet** — OpenCode driving a 30B coder model on the Arc 140V ([agentic-setup](https://github.com/blairducrayoppat/agentic-setup-public)) — for autonomous overnight runs, and GitHub Copilot for review passes.
 
 I'm transparent about this because I think it's the future of software engineering — and because the results speak for themselves: a standing test gate of 10,000+ tests at zero failures, formally specified use cases, every claim hardware-validated on real silicon.
 
