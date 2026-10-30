@@ -36,7 +36,7 @@ The payoff of keeping that record is that nothing has to fail silently. When a p
 
 The Governator runs as you; the agent runs in a separate, lesser identity it cannot climb out of, so it can never change a policy, only report that one stopped it. The human at the keyboard makes every change, from one place: network, files, tools and MCP servers, down to a single folder, port or tool call, switched on or off while the session runs. The app is meant to be navigated by anyone who can use a computer, with ready-made configurations for the common AI tools, and a built-in assistant that can read the setup but not change it, there to walk a person through getting what they want. It is meant for every Windows user, from a developer who wants precise control to someone who has never trusted an AI agent on their machine and would like to.
 
-Its [decision record](https://github.com/blairducrayoppat/blarai-public/blob/619de306bbfb6db0ce80dfb0d51fb79490aa6fad/docs/adrs/ADR-049-Governator-Venture-Reopened.md) lives in BlarAI's repository. The code is not public or licensed yet; I intend to open-source it.
+Its [decision record](https://github.com/blairducrayoppat/blarai-public/blob/d7271b7332ae61159cf3b8ee9df7568535129d9a/docs/adrs/ADR-049-Governator-Venture-Reopened.md) lives in BlarAI's repository. The code is not public or licensed yet; I intend to open-source it.
 
 ---
 
